@@ -13,8 +13,18 @@ const Credits = (props) => {
   const credits = props.credits;
   const accountBalance = props.accountBalance;
 
-  const addCredits = (credits) => {
 
+  let creditsHistory = () => {
+    const { credits } = props;
+    return credits.map((credit) => {
+      let date = credit.date.slice(0, 10);
+      return (
+        <li key={credit.id}>
+          {credit.amount} {credit.description} {date}
+        </li>
+      );
+    });
+  };
 
   return (
     <div>
@@ -23,7 +33,6 @@ const Credits = (props) => {
       <Link to="/">Return to Home</Link>
     </div>
   );
-  }
 }
 
 export default Credits;

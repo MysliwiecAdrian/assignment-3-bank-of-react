@@ -28,6 +28,23 @@ class App extends Component {
     };
   }
 
+    //Set up the componentDidMount lifecycle method to fetch the credit and debit data
+    componentDidMount() {
+      // Fetch credit data
+      fetch("https://johnnylaicode.github.io/api/credits.json")
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({creditList: data})
+        });
+  
+      // Fetch debit data
+      fetch("https://johnnylaicode.github.io/api/debits.json")
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({debitList: data})
+        });
+    }  
+
   // Update state's currentUser (userName) after "Log In" button is clicked
   mockLogIn = (logInInfo) => {  
     const newUser = {...this.state.currentUser};
