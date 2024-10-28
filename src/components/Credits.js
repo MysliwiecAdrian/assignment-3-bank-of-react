@@ -10,9 +10,6 @@ import AccountBalance from './AccountBalance';
 
 
 const Credits = (props) => {
-  const credits = props.credits;
-  const accountBalance = props.accountBalance;
-
 
   let creditsHistory = () => {
     const { credits } = props;
@@ -29,6 +26,9 @@ const Credits = (props) => {
   return (
     <div>
       <h1>Credits</h1>
+      {creditsHistory()}
+      <br/>
+      
       <br/>
       <Link to="/">Return to Home</Link>
     </div>
