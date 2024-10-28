@@ -13,8 +13,12 @@ const Credits = (props) => {
   const [creditDesc, setCreditDesc] = useState('');
   const [creditAmount, setCreditAmount] = useState(0);
 
-  const handleChange = (event) => {
-    setDescription(event.target.value);
+  const handleDescChange = (event) => {
+    setCreditDesc(event.target.value);
+  };
+
+  const handleAmountChange = (event) => {
+    setCreditAmount(event.target.value);
   };
 
   let creditsHistory = () => {
@@ -35,8 +39,8 @@ const Credits = (props) => {
       {creditsHistory()}
       <br/>
       <form>
-        <input type="text" name="description" placeholder="Description" value={description} onChange={handleChange}/>
-        <input type="number" name="amount" placeholder="Amount" value={amount}/>
+        <input type="text" name="description" placeholder="Description" value={creditDesc} onChange={handleDescChange}/>
+        <input type="number" name="amount" placeholder="Amount" value={creditAmount} onChange={handleAmountChange}/>
         <button type="submit">Add Credit</button>
       </form>
       <div>Balance: $</div>

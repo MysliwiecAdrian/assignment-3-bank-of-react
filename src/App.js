@@ -54,7 +54,16 @@ class App extends Component {
 
   //Add new credit payments to the creditList
   addCredit = (credit) => {
+    const date = new Date();
+    credit.preventDefault();
+    const newCredit = {amount: 0, description: '', date: ""};
     
+    this.setState({
+      creditList: [...this.state.creditList, newCredit]
+    });
+    this.setState({
+      accountBalance: this.state.accountBalance + Number(credit.target.amount.value)
+    });
   }
 
   // Create Routes and React elements to be rendered using React components
