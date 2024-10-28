@@ -5,11 +5,17 @@ The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import AccountBalance from './AccountBalance';
 
 
 const Credits = (props) => {
+  const [creditDesc, setCreditDesc] = useState('');
+  const [creditAmount, setCreditAmount] = useState(0);
+
+  const handleChange = (event) => {
+    setDescription(event.target.value);
+  };
 
   let creditsHistory = () => {
     const { credits } = props;
@@ -28,7 +34,12 @@ const Credits = (props) => {
       <h1>Credits</h1>
       {creditsHistory()}
       <br/>
-      
+      <form>
+        <input type="text" name="description" placeholder="Description" value={description} onChange={handleChange}/>
+        <input type="number" name="amount" placeholder="Amount" value={amount}/>
+        <button type="submit">Add Credit</button>
+      </form>
+      <div>Balance: $</div>
       <br/>
       <Link to="/">Return to Home</Link>
     </div>
