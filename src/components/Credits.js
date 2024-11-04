@@ -37,7 +37,7 @@ const Credits = (props) => {
       <h1>Credits</h1>
       {creditsHistory()}
       <br/>
-      <form>
+      <form onSubmit={props.addCredit}>
         <input type="text" name="description" placeholder="Description" value={creditDesc} onChange={handleDescChange}/>
         <input type="number" name="amount" placeholder="Amount" value={creditAmount} onChange={handleAmountChange}/>
         <button type="submit">Add Credit</button>
