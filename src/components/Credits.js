@@ -6,11 +6,10 @@ Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
-import AccountBalance from './AccountBalance';
 
 
 const Credits = (props) => {
-  const [creditDesc, setCreditDesc] = useState('');
+  const [creditDesc, setCreditDesc] = useState("");
   const [creditAmount, setCreditAmount] = useState(0);
 
   const handleDescChange = (event) => {
@@ -43,7 +42,7 @@ const Credits = (props) => {
         <input type="number" name="amount" placeholder="Amount" value={creditAmount} onChange={handleAmountChange}/>
         <button type="submit">Add Credit</button>
       </form>
-      <div>Balance: $</div>
+      <div>Balance: ${props.balance}</div>
       <br/>
       <Link to="/">Return to Home</Link>
     </div>

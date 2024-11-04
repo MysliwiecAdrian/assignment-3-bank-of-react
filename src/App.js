@@ -57,12 +57,14 @@ class App extends Component {
     const date = new Date();
     credit.preventDefault();
     const newCredit = {amount: 0, description: '', date: ""};
-    
-    this.setState({
-      creditList: [...this.state.creditList, newCredit]
+    newCredit.amount = +parseFloat(credit.target[1].value).toFixed(2);
+    newCredit.date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    newCredit.description = credit.target[0].value;
+    this.setState({ 
+      creditList: this.state.creditList.concat(newCredit) 
     });
     this.setState({
-      accountBalance: this.state.accountBalance + Number(credit.target.amount.value)
+      accountBalance: this.state.accountBalance + newCredit.amount,
     });
   }
 
