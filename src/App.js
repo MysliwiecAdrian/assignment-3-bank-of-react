@@ -60,14 +60,7 @@ class App extends Component {
       accountBalance: this.state.accountBalance - newDebit.amount,
     });
   }
-
-  // Update state's currentUser (userName) after "Log In" button is clicked
-  mockLogIn = (logInInfo) => {  
-    const newUser = {...this.state.currentUser};
-    newUser.userName = logInInfo.userName;
-    this.setState({currentUser: newUser})
-  }
-
+  
   //Add new credit payments to the creditList
   addCredit = (credit) => {
     const date = new Date();
@@ -82,6 +75,13 @@ class App extends Component {
     this.setState({
       accountBalance: this.state.accountBalance + newCredit.amount,
     });
+  }
+  
+  // Update state's currentUser (userName) after "Log In" button is clicked
+  mockLogIn = (logInInfo) => {  
+    const newUser = {...this.state.currentUser};
+    newUser.userName = logInInfo.userName;
+    this.setState({currentUser: newUser})
   }
 
   // Create Routes and React elements to be rendered using React components

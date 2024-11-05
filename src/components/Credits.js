@@ -20,7 +20,7 @@ const Credits = (props) => {
     setCreditAmount(event.target.value);
   };
 
-  let creditsHistory = () => {
+  let creditsView = () => {
     const { credits } = props;
     return credits.map((credit) => {
       let date = credit.date.slice(0, 10);
@@ -35,7 +35,7 @@ const Credits = (props) => {
   return (
     <div>
       <h1>Credits</h1>
-      {creditsHistory()}
+      {creditsView()}
       <br/>
       <form onSubmit={props.addCredit}>
         <input type="text" name="description" placeholder="Description" value={creditDesc} onChange={handleDescChange}/>
